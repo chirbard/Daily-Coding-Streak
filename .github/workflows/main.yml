@@ -26,6 +26,7 @@ jobs:
         git config user.email "<>"
         git switch main
         formatted_date=$(date -I)
+        echo $formatted_date
         git restore --source archive -- "${formatted_date}/"
         git add --all
         git commit -m "daily commit ${formatted_date}"
