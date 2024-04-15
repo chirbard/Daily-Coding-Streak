@@ -1,0 +1,33 @@
+name: Daily Contributions
+
+#on:
+#  schedule:
+#    - cron: '0 12 * * *'
+on:
+  # Triggers the workflow on push or pull request events but only for the "main" branch
+  push:
+    branches: ["archive"]
+  workflow_dispatch:
+
+jobs:
+  build-version:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Git checkout
+      uses: actions/checkout@v2
+      with:
+        fetch-depth: '0'
+    - name: git
+      run: |
+        # setup the username and email. I tend to use 'GitHub Actions Bot' with no email by default
+        git --version
+        git config user.name "chirbard"
+        git config user.email "<>"
+        git switch archive
+        formatted_date=$(date -I)
+        echo $formatted_date
+        git restore --source archive -- "${formatted_date}/"
+        git add --all
+        git commit -m "daily commit ${formatted_date}"
+        git push
