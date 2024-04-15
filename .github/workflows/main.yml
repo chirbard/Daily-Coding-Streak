@@ -4,8 +4,10 @@ name: Daily Contributions
 on:
   #push:
     #branches: ["archive"]
-  schedule:
-    - cron: '*/10 * * * *'
+  #schedule:
+    #- cron: '*/10 * * * *'
+  issue_comment:
+    types: [created, deleted]
   workflow_dispatch:
 
 jobs:
