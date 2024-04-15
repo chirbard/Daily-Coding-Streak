@@ -1,55 +1,29 @@
-# Sales By Match
-Problem link: https://www.hackerrank.com/challenges/sock-merchant/problem
+# 28. Find the Index of the First Occurrence in a String
 
-There is a large pile of socks that must be paired by color. Given an array of integers representing the color of each sock, determine how many pairs of socks with matching colors there are.
+Problem Link: https://leetcode.com/problems/find-the-index-of-the-first-occurrence-in-a-string/description/
 
-Example
+Easy
+
+Given two strings needle and haystack, return the index of the first occurrence of needle in haystack, or -1 if needle is not part of haystack.
+
+Example 1:
+
 ```
-n = 7
-ar = [1,2,1,2,1,3,2]
+Input: haystack = "sadbutsad", needle = "sad"
+Output: 0
+Explanation: "sad" occurs at index 0 and 6.
+The first occurrence is at index 0, so we return 0.
 ```
-There is one pair of color and one of color . There are three odd socks left, one of each color. The number of pairs is 2
 
-## Function Description
+Example 2:
 
-Complete the sockMerchant function in the editor below.
-
-sockMerchant has the following parameter(s):
-
-    int n: the number of socks in the pile
-    int ar[n]: the colors of each sock
-
-Returns
-
-    int: the number of pairs
-
-## Input Format
-
-The first line contains an integer
-, the number of socks represented in .
-The second line contains space-separated integers,
-
-, the colors of the socks in the pile.
-
-Constraints
-
-![alt text](image.png)
-
-### Sample Input
-
-STDIN Function
-
----
 ```
-9 n = 9
-10 20 20 10 10 30 50 10 20 ar = [10, 20, 20, 10, 10, 30, 50, 10, 20]
+Input: haystack = "leetcode", needle = "leeto"
+Output: -1
+Explanation: "leeto" did not occur in "leetcode", so we return -1.
 ```
-### Sample Output
-```
-3
-```
-### Explanation
 
-![alt text](1474122392-c7b9097430-sock.png)
+Constraints:
 
-There are three pairs of socks.
+    1 <= haystack.length, needle.length <= 104
+    haystack and needle consist of only lowercase English characters.
