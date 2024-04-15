@@ -24,7 +24,7 @@ jobs:
         git --version
         git config user.name "chirbard"
         git config user.email "<>"
-        git switch archive
+        git switch main
         formatted_date=$(date -I)
         echo $formatted_date
         git restore --source archive -- "${formatted_date}/"
