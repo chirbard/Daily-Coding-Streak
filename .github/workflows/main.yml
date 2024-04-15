@@ -3,8 +3,10 @@ name: Daily Contributions
 #on:
 
 on:
-  schedule:
-    - cron: '*/10 * * * *'
+  issue_comment:
+    types: [created, deleted]
+  #schedule:
+    #- cron: '*/10 * * * *'
   # Triggers the workflow on push or pull request events but only for the "main" branch
   push:
     branches: ["archive"]
