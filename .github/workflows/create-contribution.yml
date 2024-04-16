@@ -21,7 +21,7 @@ jobs:
         # setup the username and email. I tend to use 'GitHub Actions Bot' with no email by default
         git --version
         git config user.name "chirbard"
-        git config user.email "<>"
+        git config user.email "73120520+chirbard@users.noreply.github.com"
         git switch archive
         git switch main
         formatted_date=$(date -I)
