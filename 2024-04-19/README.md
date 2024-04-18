@@ -1,55 +1,24 @@
-# Sales By Match
-Problem link: https://www.hackerrank.com/challenges/sock-merchant/problem
+# PPO Agent playing BipedalWalker-v3 
 
-There is a large pile of socks that must be paired by color. Given an array of integers representing the color of each sock, determine how many pairs of socks with matching colors there are.
+- Model on Hugging Face: https://huggingface.co/chirbard/ppo-BipedalWalker-v3
+- Based on Hugging Face Deep RL course: https://huggingface.co/learn/deep-rl-course/
+- Gymnasium Environment: https://gymnasium.farama.org/environments/box2d/bipedal_walker/
 
-Example
+## Hyperparameters
 ```
-n = 7
-ar = [1,2,1,2,1,3,2]
+model = PPO(
+    policy = 'MlpPolicy',
+    env = env,
+    n_steps = 1024,
+    batch_size = 64,
+    n_epochs = 4,
+    gamma = 0.99,
+    gae_lambda = 0.98,
+    ent_coef = 0.01,
+    verbose=1)
 ```
-There is one pair of color and one of color . There are three odd socks left, one of each color. The number of pairs is 2
+## Train Time
+Trained for 3 000 000 timesteps. Training took 1 hour and 8 minutes on Nvidia RTX A2000 Laptop.
 
-## Function Description
-
-Complete the sockMerchant function in the editor below.
-
-sockMerchant has the following parameter(s):
-
-    int n: the number of socks in the pile
-    int ar[n]: the colors of each sock
-
-Returns
-
-    int: the number of pairs
-
-## Input Format
-
-The first line contains an integer
-, the number of socks represented in .
-The second line contains space-separated integers,
-
-, the colors of the socks in the pile.
-
-Constraints
-
-![alt text](image.png)
-
-### Sample Input
-
-STDIN Function
-
----
-```
-9 n = 9
-10 20 20 10 10 30 50 10 20 ar = [10, 20, 20, 10, 10, 30, 50, 10, 20]
-```
-### Sample Output
-```
-3
-```
-### Explanation
-
-![alt text](1474122392-c7b9097430-sock.png)
-
-There are three pairs of socks.
+## Video
+![replay gif](replay.gif)
