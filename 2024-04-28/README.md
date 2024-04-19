@@ -1,24 +1,13 @@
-Snail Sort
+# Towers of Hanoi
+Project from Codecademy "Learn Data Structures and Algorithms with Python" course.
 
-Given an n x n array, return the array elements arranged from outermost elements to the middle element, traveling clockwise.
-```
-array = [[1,2,3],
-         [4,5,6],
-         [7,8,9]]
-snail(array) #=> [1,2,3,6,9,8,7,4,5]
-```
-For better understanding, please follow the numbers of the next array consecutively:
-```
-array = [[1,2,3],
-         [8,9,4],
-         [7,6,5]]
-snail(array) #=> [1,2,3,4,5,6,7,8,9]
-```
-This image will illustrate things more clearly:
+![Towers of Hanoi](image.png)
 
-![image of snail sort](image.png)
+The objective of the game is to move the stack of disks from the leftmost stack to the rightmost stack.
 
+The game follows three rules:
+1. Only one disk can be moved at a time.
+2. Each move consists of taking the upper disk from one of the stacks and placing it on top of another stack or on an empty rod.
+3. No disk may be placed on top of a smaller disk.
 
-NOTE: The idea is not sort the elements from the lowest value to the highest; the idea is to traverse the 2-d array in a clockwise snailshell pattern.
-
-NOTE 2: The 0x0 (empty matrix) is represented as en empty array inside an array [[]].
+Link to course: https://www.codecademy.com/enrolled/courses/learn-data-structures-and-algorithms-with-python

@@ -1,54 +1,62 @@
-# Solution with recursion (by me)
-def upper_list(result, lst):
-    for element in lst:
-        result.append(element)
+from stack import Stack
 
-def lower_list(result, lst):
-    for element in reversed(lst):
-        result.append(element)
+print("\nLet's play Towers of Hanoi!!")
 
-def edge_cases(result, snail_map):
-    if len(snail_map) == 0:
-        return result
-    if len(snail_map) == 1:
-        upper_list(result, snail_map.pop(0))
-        return result
-    if len(snail_map) == 2:
-        upper_list(result, snail_map.pop(0))
-        lower_list(result, snail_map.pop(0))
-        return result
+#Create the Stacks
+stacks = []
+left_stack = Stack('Left')
+middle_stack = Stack('Middle')
+right_stack = Stack('Right')
+stacks.append(left_stack)
+stacks.append(middle_stack)
+stacks.append(right_stack)
 
-def recursion_loop(result, snail_map):
-    if len(snail_map) < 3:
-        return edge_cases(result, snail_map)
+#Set up the Game
+num_disks = 0
+while num_disks < 3:
+  num_disks = int(input("\nHow many disks do you want to play with?\n"))
 
-    upper_list(result, snail_map.pop(0))
-    for i in range(len(snail_map) - 1):
-        result.append(snail_map[i].pop(-1))
+for i in range(num_disks, 0, -1):
+  left_stack.push(i)
+num_optimal_moves = pow(2, num_disks) - 1
+print(f"\nThe fastest you can solve this game is in {num_optimal_moves} moves")
 
-    lower_list(result, snail_map.pop(len(snail_map) - 1))
-    for i in range(len(snail_map) - 1, 0, -1):
-        result.append(snail_map[i].pop(0))
+#Get User Input
+def get_input():
+  choices = []
+  for stack in stacks:
+    choices.append(stack.get_name()[0])
+  while True:
+    for i in range(len(stacks)):
+      name = stacks[i].get_name()
+      letter = choices[i]
+      print(f"Enter {letter} for {name}")
+    user_input = input("")
+    if user_input in choices:
+      for i in range(len(stacks)):
+        if user_input == choices[i]:
+          return stacks[i]
 
-    return recursion_loop(result, snail_map)
+#Play the Game
+num_user_moves = 0
+while right_stack.get_size() != num_disks:
+  print("\n\n\n...Current Stacks...")
+  for stack in stacks:
+    stack.print_items()
+  while True:
+    print("\nWhich stack do you want to move from?\n")
+    from_stack = get_input()
+    print("\nWhich stack do you want to move to?\n")
+    to_stack = get_input()
+    if from_stack.is_empty():
+      print("\n\nInvalid Move. Try Again")
+    elif to_stack.is_empty() or from_stack.peek() < to_stack.peek():
+      disk = from_stack.pop()
+      to_stack.push(disk)
+      num_user_moves += 1
+      break
+    else:
+      print("\n\nInvalid Move. Try Again")
 
-def snail(snail_map):
-    result = []
-    return recursion_loop(result, snail_map)
+print(f"\n\nYou completed the game in {num_user_moves} moves, and the optimal number of moves is {num_optimal_moves}")
 
-# Solution using Numpy (from CodeWars)
-# import numpy as np
-
-# def snail(array):
-#     m = []
-#     array = np.array(array)
-#     while len(array) > 0:
-#         m += array[0].tolist()
-#         array = np.rot90(array[1:])
-#     return m
-
-array = [[1,2,3,4],
-         [8,9,4,5],
-         [1,2,3,4],
-         [7,6,5,6]]
-print(snail(array))
