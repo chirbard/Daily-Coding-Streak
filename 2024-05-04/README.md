@@ -1,24 +1,6 @@
-# Reverse Linked List
+# Codecademy recursive tree depth finder Project
+This is a recursive tree depth finder project solution in Codecademy "Learn Data Structures and Algorithms with Python" course.
 
-Given the `head` of a singly linked list, reverse the list, and return _the reversed list_.
+I'm losing my mind over how much simpler this implementation is than iterative implementation. Iterative is 12 lines and this is 3 lines.
 
-Example 1:
-
-![alt text](image-1.png)
-```
-Input: head = [1,2,3,4,5]
-Output: [5,4,3,2,1]
-```
-Example 2:
-
-![alt text](image.png)
-```
-Input: head = [1,2]
-Output: [2,1]
-```
-Example 3:
-```
-Input: head = []
-Output: []
-```
-Follow up: A linked list can be reversed either iteratively or recursively. Could you implement both?
+Link to course: https://www.codecademy.com/enrolled/courses/learn-data-structures-and-algorithms-with-python
