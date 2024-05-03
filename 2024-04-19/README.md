@@ -4,6 +4,9 @@
 - Based on Hugging Face Deep RL course: https://huggingface.co/learn/deep-rl-course/
 - Gymnasium Environment: https://gymnasium.farama.org/environments/box2d/bipedal_walker/
 
+## Video
+![replay gif](replay.gif)
+
 ## Hyperparameters
 ```
 model = PPO(
@@ -19,6 +22,3 @@ model = PPO(
 ```
 ## Train Time
 Trained for 3 000 000 timesteps. Training took 1 hour and 8 minutes on Nvidia RTX A2000 Laptop.
-
-## Video
-![replay gif](replay.gif)
