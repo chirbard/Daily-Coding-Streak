@@ -4,6 +4,9 @@
 - Based on Hugging Face Deep RL course: https://huggingface.co/learn/deep-rl-course/
 - See it play on hugging face (choose chirbard/ppo-Worm): https://huggingface.co/spaces/unity/ML-Agents-Worm 
 
+## Video
+![replay gif](replay.gif)
+
 ## Hyperparameters
 ```
 behaviors:
@@ -32,6 +35,3 @@ behaviors:
     time_horizon: 1000
     summary_freq: 30000
 ```
-
-## Video
-![replay gif](replay.gif)
