@@ -1,45 +1,23 @@
-#!/bin/python3
+from tree import TreeNode
+from bfs import bfs
 
-import math
-import os
-import random
-import re
-import sys
+sample_root_node = TreeNode("Home")
+docs = TreeNode("Documents")
+photos = TreeNode("Photos")
+sample_root_node.children = [docs, photos]
+my_wish = TreeNode("WishList.txt")
+my_todo = TreeNode("TodoList.txt")
+my_cat = TreeNode("Fluffy.jpg")
+my_dog = TreeNode("Spot.jpg")
+docs.children = [my_wish, my_todo]
+photos.children = [my_cat, my_dog]
 
-#
-# Complete the 'sockMerchant' function below.
-#
-# The function is expected to return an INTEGER.
-# The function accepts following parameters:
-#  1. INTEGER n
-#  2. INTEGER_ARRAY ar
-#
-
-def sockMerchant(n, ar):
-    # Write your code here
-    hashmap = {}
-    
-    for element in ar:
-        if element not in hashmap:
-            hashmap[element] = 1
-            continue
-        hashmap[element] += 1
-    
-    result = 0
-    for element in hashmap.values():
-        result += int(element/2)
-
-    return result
-
-if __name__ == '__main__':
-    fptr = open(os.environ['OUTPUT_PATH'], 'w')
-
-    n = int(input().strip())
-
-    ar = list(map(int, input().rstrip().split()))
-
-    result = sockMerchant(n, ar)
-
-    fptr.write(str(result) + '\n')
-
-    fptr.close()
+print(sample_root_node)
+# Change the 2nd argument below
+goal_path = bfs(sample_root_node, "Fluffy.jpg")
+if goal_path is None:
+  print("No path found")
+else:
+  print("Path found")
+  for node in goal_path:
+    print(node.value)
