@@ -1,7 +1,5 @@
 name: Create Contribution
 
-#on:
-
 on:
   issue_comment:
     types: [created]
@@ -18,7 +16,6 @@ jobs:
         fetch-depth: '0'
     - name: git
       run: |
-        # setup the username and email. I tend to use 'GitHub Actions Bot' with no email by default
         git --version
         git config user.name "chirbard"
         git config user.email "73120520+chirbard@users.noreply.github.com"
