@@ -25,5 +25,5 @@ jobs:
         echo $formatted_date
         git restore --source archive -- "${formatted_date}/"
         git add --all
-        git commit -m "daily commit ${formatted_date}"
+        git commit -m "Daily commit ${formatted_date}"
         git push
